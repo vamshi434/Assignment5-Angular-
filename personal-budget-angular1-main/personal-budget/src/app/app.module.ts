@@ -14,6 +14,15 @@ import { LoginComponent } from './login/login.component';
 import { P404Component } from './p404/p404.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ContactComponent } from './contact/contact.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const routes: Routes = [
+  // Define your routes here, including the home route (root path '/')
+  { path: '', component: AppComponent },
+  {path : 'hero', component:HeroComponent}
+  // Other routes...
+];
 
 @NgModule({
   declarations: [
@@ -30,9 +39,12 @@ import { ContactComponent } from './contact/contact.component';
     ContactComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
+  ],exports: [   // Add RouterModule to the exports array
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
